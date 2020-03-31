@@ -17,7 +17,7 @@ def get_version():
 
 
 install_requires = [
-    'django>=2.1',
+    'django>=2.2',
 ]
 
 setup(
