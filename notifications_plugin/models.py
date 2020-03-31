@@ -23,7 +23,7 @@ class NotificationMessageManager(models.Manager):
                     Message summary
                 description: str
                     Actual notification message
-                msg_type: str
+                message_type: str
                     Indicate the type of the message i.e. info, danger,
                     warning, success
 
@@ -61,7 +61,7 @@ class NotificationMessageManager(models.Manager):
         """
         notification_msg = NotificationMessage.objects.create(
             creator_id=creator_id, summary=summary, description=description,
-            msg_type=msg_type
+            message_type=msg_type
         )
         return notification_msg
 
@@ -141,7 +141,7 @@ class NotificationManager(models.Manager):
         notification.read_on = timezone.now() if read else None
         notification.save()
 
-    def get_all_receiver_notifications(self, receiver_id):
+    def get_receiver_notifications(self, receiver_id):
         return Notification.objects.filter(receiver_id=receiver_id)
 
     def get_unread_receiver_notifications(self, receiver_id):
